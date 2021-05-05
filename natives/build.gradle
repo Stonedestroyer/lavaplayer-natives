@@ -219,7 +219,7 @@ def buildMpg123OnLinux(force) {
   if (force || !present) {
     replaceAutotoolsVersion("$projectDir/mp3/mpg123-${mpg123Version}", '1.15.1')
 
-    def flags = "-fPIC -O3 -fdata-sections -ffunction-sections"
+    def flags = "-fPIC -O3 -fdata-sections -ffunction-sections -march=aarch64"
     def process = ['./configure', '--enable-static', '--with-pic', "CFLAGS=$flags", "CXXFLAGS=$flags"].
         execute(null as String[], file("$projectDir/mp3/mpg123-${mpg123Version}"))
 
